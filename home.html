@@ -8,8 +8,37 @@
   <meta name="Description" content="mal0004, discord, dev"
   </head>
   
+  <script>
+            const SITE_NAME = document.title;
+            const TIME = 0.3 * 1000;
+
+            const yield = seconds => new Promise(_ => setTimeout(_, seconds));
+            async function init() {
+                await yield(TIME * 4);
+                for (let s = SITE_NAME.length; s >= 0; s--) {
+                    let newTitle = SITE_NAME.substr(0, s);
+                    if (s === 0) newTitle = "_";
+                    
+                    document.title = newTitle;
+                    await yield(TIME);
+                }
+            
+                await yield(TIME);
+                for (let s = 0; s <= SITE_NAME.length; s++) {
+                    let newTitle = SITE_NAME.substr(0, s);
+                    if (s === 0) newTitle = "_";
+                    
+                    document.title = newTitle;
+                    await yield(TIME);
+                }
+
+                init();
+            }
+
+            init();
+   
 <body>
- <a href="https://www.vultr.com/?ref=8757865-6G"><img src="https://www.vultr.com/media/banners/banner_468x60.png" width="468" height="60"></a>
+ //<a href="https://www.vultr.com/?ref=8757865-6G"><img src="https://www.vultr.com/media/banners/banner_468x60.png" width="468" height="60"></a>
 <body background="images/rick_ashley.gif">
 <p>Hi! Welcome to mal0004's super gigantic personal website.</p>
 <blockquote> I like shiba, memes, discord, Rick Astley, biology, astronomy and history!</blockquote>
